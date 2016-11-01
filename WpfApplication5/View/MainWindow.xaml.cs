@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Takushi.App.Services;
 
 namespace Takushi.App.View
 {
@@ -10,6 +11,14 @@ namespace Takushi.App.View
         public MainWindow()
         {
             InitializeComponent();
+
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            ProductsDataService productsDataService = new ProductsDataService();
+            ProductsListView.ItemsSource = productsDataService.GetAllProducts();
         }
     }
 }

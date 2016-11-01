@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takushi.App", "WpfApplication5\Takushi.App.csproj", "{BAE022B5-0112-4D9D-98C5-27E072D5C684}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takushi.DAL", "Takushi.DAL\Takushi.DAL.csproj", "{BA181770-AD48-4918-A1B3-567F3BA6A133}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takushi.Model", "Takushi.Model\Takushi.Model.csproj", "{E8ECEB5A-1355-4924-9A5A-D24F20CE877F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{BAE022B5-0112-4D9D-98C5-27E072D5C684}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAE022B5-0112-4D9D-98C5-27E072D5C684}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAE022B5-0112-4D9D-98C5-27E072D5C684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA181770-AD48-4918-A1B3-567F3BA6A133}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA181770-AD48-4918-A1B3-567F3BA6A133}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA181770-AD48-4918-A1B3-567F3BA6A133}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA181770-AD48-4918-A1B3-567F3BA6A133}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8ECEB5A-1355-4924-9A5A-D24F20CE877F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8ECEB5A-1355-4924-9A5A-D24F20CE877F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8ECEB5A-1355-4924-9A5A-D24F20CE877F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8ECEB5A-1355-4924-9A5A-D24F20CE877F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
