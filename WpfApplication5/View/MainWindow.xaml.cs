@@ -35,5 +35,12 @@ namespace Takushi.App.View
                 WarrantyLabel.Content = selectedProduct.WarrantyExpires;
             }
         }
+
+        private void EditProductButton_Click(object sender, RoutedEventArgs e)
+        {
+            ProductDetailView productDetailView = new ProductDetailView();
+            productDetailView.SelectedProduct = selectedProduct;
+            productDetailView.ShowDialog();
+        }
     }
 }
