@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takushi.App", "WpfApplication5\Takushi.App.csproj", "{BAE022B5-0112-4D9D-98C5-27E072D5C684}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takushi.App", "Takushi.App\Takushi.App.csproj", "{BAE022B5-0112-4D9D-98C5-27E072D5C684}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takushi.DAL", "Takushi.DAL\Takushi.DAL.csproj", "{BA181770-AD48-4918-A1B3-567F3BA6A133}"
 EndProject
