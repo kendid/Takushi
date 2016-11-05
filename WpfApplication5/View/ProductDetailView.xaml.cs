@@ -3,9 +3,6 @@ using Takushi.Model;
 
 namespace Takushi.App.View
 {
-    /// <summary>
-    /// Interaction logic for ProductDetailView.xaml
-    /// </summary>
     public partial class ProductDetailView : Window
     {
         public Product SelectedProduct { get; set; }
@@ -19,14 +16,7 @@ namespace Takushi.App.View
 
         void ProductDetailView_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadData();
-        }
-
-        private void LoadData()
-        {
-            ProductNameTextBox.Text = SelectedProduct.Name;
-            PurchaseDateTextBox.Text = SelectedProduct.PurchaseDate;
-            WarrantyTextBox.Text = SelectedProduct.WarrantyExpires;
+            this.DataContext = SelectedProduct;
         }
 
         private void SaveProductButton_Click(object sender, RoutedEventArgs e)

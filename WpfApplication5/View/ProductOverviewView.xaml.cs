@@ -1,17 +1,16 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using Takushi.App.Services;
 using Takushi.Model;
 
 namespace Takushi.App.View
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class ProductOverviewView : Window
     {
         private Product selectedProduct;
+        private List<Product> products;
 
-        public MainWindow()
+        public ProductOverviewView()
         {
             InitializeComponent();
 
@@ -21,7 +20,8 @@ namespace Takushi.App.View
         private void LoadData()
         {
             ProductsDataService productsDataService = new ProductsDataService();
-            ProductsListView.ItemsSource = productsDataService.GetAllProducts();
+            products = productsDataService.GetAllProducts();
+            ProductsListView.ItemsSource = products;
         }
 
         private void ProductsListView_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Takushi.App.View"
         mc:Ignorable="d"
-        Title="ProductDetailView" Height="300" Width="300">
+        Title="ProductDetailView" Height="400" Width="600">
     <ScrollViewer>
         <Grid Margin="5">
             <Grid.ColumnDefinitions>
@@ -22,15 +22,15 @@
                 <RowDefinition Height="50" />
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Grid.ColumnSpan="2" Name="ProductNameLabel" FontSize="24" FontWeight="Bold" />
+            <Label Grid.Row="0" Grid.ColumnSpan="2" Name="ProductNameLabel" FontSize="24" FontWeight="Bold" Content="{Binding Name}" />
             <!-- Grid.Row=1 could contain an image -->
             <Label Grid.Row="2" FontWeight="Bold" Content="Name of product" />
             <Label Grid.Row="3" FontWeight="Bold" Content="Date of purchase" />
             <Label Grid.Row="4" FontWeight="Bold" Content="Warranty expires" />
 
-            <TextBox Grid.Row="2" Grid.Column="1" Name="ProductNameTextBox" />
-            <TextBox Grid.Row="3" Grid.Column="1" Name="PurchaseDateTextBox" />
-            <TextBox Grid.Row="4" Grid.Column="1" Name="WarrantyTextBox" />
+            <TextBox Grid.Row="2" Grid.Column="1" Name="ProductNameTextBox" Text="{Binding Name}" />
+            <TextBox Grid.Row="3" Grid.Column="1" Name="PurchaseDateTextBox" Text="{Binding PurchaseDate}" />
+            <TextBox Grid.Row="4" Grid.Column="1" Name="WarrantyTextBox" Text="{Binding WarrantyExpires}" />
 
             <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal">
                 <Button Name="SaveProductButton" Margin="5" Content="Save product" Click="SaveProductButton_Click" />
