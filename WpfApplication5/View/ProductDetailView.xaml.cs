@@ -28,5 +28,11 @@ namespace Takushi.App.View
         {
             this.Close();
         }
+
+        private void ChangeProductButton_Click(object sender, RoutedEventArgs e)
+        {
+            SelectedProduct.Name = "Something really old";
+            SelectedProduct.PurchaseDate = "1989-09-06";
+        }
     }
 }

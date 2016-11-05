@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
 using Takushi.App.Services;
 using Takushi.Model;
@@ -8,7 +8,7 @@ namespace Takushi.App.View
     public partial class ProductOverviewView : Window
     {
         private Product selectedProduct;
-        private List<Product> products;
+        private ObservableCollection<Product> Products;
 
         public ProductOverviewView()
         {
@@ -20,8 +20,8 @@ namespace Takushi.App.View
         private void LoadData()
         {
             ProductsDataService productsDataService = new ProductsDataService();
-            products = productsDataService.GetAllProducts();
-            ProductsListView.ItemsSource = products;
+            Products = productsDataService.GetAllProducts();
+            ProductsListView.ItemsSource = Products;
         }
 
         private void ProductsListView_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -41,6 +41,18 @@ namespace Takushi.App.View
             ProductDetailView productDetailView = new ProductDetailView();
             productDetailView.SelectedProduct = selectedProduct;
             productDetailView.ShowDialog();
+        }
+
+        private void AddFakeProductButton_Click(object sender, RoutedEventArgs e)
+        {
+            Product product = new Product()
+            {
+                Name = "Test product",
+                PurchaseDate = "2000-01-01",
+                WarrantyExpires = "2005-12-31"
+            };
+
+            Products.Add(product);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 using Takushi.DAL;
 using Takushi.Model;
 
@@ -8,9 +8,12 @@ namespace Takushi.App.Services
     {
         ProductsRepository _repository = new ProductsRepository();
 
-        public List<Product> GetAllProducts()
+        public ObservableCollection<Product> GetAllProducts()
         {
-            return _repository.GetProducts();
+            var observableCollection = new ObservableCollection<Product>();
+            foreach (var listItem in _repository.GetProducts())
+                observableCollection.Add(listItem);
+            return observableCollection;
         }
     }
 }

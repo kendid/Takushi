@@ -47,6 +47,7 @@
 
             <StackPanel Grid.Row="4">
                 <Button Name="EditProductButton" Content="Edit product" Click="EditProductButton_Click" />
+                <Button Name="AddFakeProductButton" Content="Add fake product" Click="AddFakeProductButton_Click" />
             </StackPanel>
         </Grid>
     </Grid>
