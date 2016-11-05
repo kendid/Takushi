@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Takushi.App.View"
         mc:Ignorable="d"
-        Title="ProductDetailView" Height="400" Width="600">
+        Title="ProductDetailView" 
+        Height="400" 
+        Width="600"
+        DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=ProductDetailViewModel}">
     <ScrollViewer>
         <Grid Margin="5">
             <Grid.ColumnDefinitions>
@@ -28,9 +31,9 @@
             <Label Grid.Row="3" FontWeight="Bold" Content="Date of purchase" />
             <Label Grid.Row="4" FontWeight="Bold" Content="Warranty expires" />
 
-            <TextBox Grid.Row="2" Grid.Column="1" Name="ProductNameTextBox" Text="{Binding Name, Mode=OneWay}" />
-            <TextBox Grid.Row="3" Grid.Column="1" Name="PurchaseDateTextBox" Text="{Binding PurchaseDate, Mode=OneWay}" />
-            <TextBox Grid.Row="4" Grid.Column="1" Name="WarrantyTextBox" Text="{Binding WarrantyExpires}" />
+            <TextBox Grid.Row="2" Grid.Column="1" Name="ProductNameTextBox" Text="{Binding SelectedProduct.Name, Mode=OneWay}" />
+            <TextBox Grid.Row="3" Grid.Column="1" Name="PurchaseDateTextBox" Text="{Binding SelectedProduct.PurchaseDate, Mode=OneWay}" />
+            <TextBox Grid.Row="4" Grid.Column="1" Name="WarrantyTextBox" Text="{Binding SelectedProduct.WarrantyExpires}" />
 
             <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal">
                 <Button Name="ChangeProductButton" Margin="5" Content="Change product" Click="ChangeProductButton_Click" />

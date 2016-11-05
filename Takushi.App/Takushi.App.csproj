@@ -71,7 +71,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\ProductDetailViewModel.cs" />
     <Compile Include="Services\ProductsDataService.cs" />
+    <Compile Include="ViewModelLocator.cs" />
+    <Compile Include="ViewModel\ProductOverviewViewModel.cs" />
     <Compile Include="View\ProductDetailView.xaml.cs">
       <DependentUpon>ProductDetailView.xaml</DependentUpon>
     </Compile>

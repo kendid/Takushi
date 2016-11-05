@@ -4,7 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="560">
+        Title="MainWindow" 
+        Height="350" 
+        Width="560"
+        DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=ProductOverviewViewModel}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -13,8 +16,9 @@
 
         <ListView Grid.Column="0"
                   Margin="5"
-                  Name="ProductsListView"
-                  SelectionChanged="ProductsListView_SelectionChanged">
+                  ItemsSource="{Binding Products}"
+                  SelectedItem="{Binding SelectedProduct}"
+                  Name="ProductsListView">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
@@ -41,13 +45,12 @@
             <Label Grid.Row="2" Grid.Column="0" Content="Date of purchase" />
             <Label Grid.Row="3" Grid.Column="0" Content="Warranty expires" />
 
-            <Label Grid.Row="1" Grid.Column="1" Name="ProductNameLabel" />
-            <Label Grid.Row="2" Grid.Column="1" Name="PurchaseDateLabel" />
-            <Label Grid.Row="3" Grid.Column="1" Name="WarrantyLabel" />
+            <Label Grid.Row="1" Grid.Column="1" Name="ProductNameLabel" Content="{Binding SelectedProduct.Name, Mode=OneWay}" />
+            <Label Grid.Row="2" Grid.Column="1" Name="PurchaseDateLabel" Content="{Binding SelectedProduct.PurchaseDate, Mode=OneWay}" />
+            <Label Grid.Row="3" Grid.Column="1" Name="WarrantyLabel" Content="{Binding SelectedProduct.WarrantyExpires, Mode=OneWay}" />
 
             <StackPanel Grid.Row="4">
-                <Button Name="EditProductButton" Content="Edit product" Click="EditProductButton_Click" />
-                <Button Name="AddFakeProductButton" Content="Add fake product" Click="AddFakeProductButton_Click" />
+                <Button Name="EditProductButton" Content="Edit product" />
             </StackPanel>
         </Grid>
     </Grid>
