@@ -59,7 +59,7 @@
     <Compile Include="View\ProductDetailView.xaml.cs">
       <DependentUpon>ProductDetailView.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\MainWindow.xaml">
+    <Page Include="View\ProductOverviewView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -67,8 +67,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="View\ProductOverviewView.xaml.cs">
+      <DependentUpon>ProductOverviewView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\ProductDetailView.xaml">
