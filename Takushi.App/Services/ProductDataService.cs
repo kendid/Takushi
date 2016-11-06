@@ -6,9 +6,9 @@ namespace Takushi.App.Services
 {
     public class ProductDataService : IProductDataService
     {
-        IProductsRepository _repository;
+        IProductRepository _repository;
 
-        public ProductDataService(IProductsRepository repository)
+        public ProductDataService(IProductRepository repository)
         {
             _repository = repository;
         }

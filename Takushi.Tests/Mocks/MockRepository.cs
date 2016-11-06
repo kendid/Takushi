@@ -1,24 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Takushi.DAL;
 using Takushi.Model;
 
-namespace Takushi.DAL
+namespace Takushi.Tests.Mocks
 {
-    public class ProductsRepository : IProductRepository
+    public class MockRepository : IProductRepository
     {
-        private static List<Product> _products;
+        private List<Product> products;
 
-        public List<Product> GetProducts()
+        public MockRepository()
         {
-            if (_products == null)
-                LoadExampleProducts();
-            return _products;
+            products = LoadMockProducts();
         }
 
-        private void LoadExampleProducts()
+        private List<Product> LoadMockProducts()
         {
-            _products = new List<Product>()
+            return new List<Product>()
             {
                 new Product()
                 {
@@ -41,20 +39,24 @@ namespace Takushi.DAL
             };
         }
 
+        public void DeleteProduct(Product product)
+        {
+
+        }
+
         public Product GetProductById(int productId)
         {
-            throw new NotImplementedException();
+            return products.Where(p => p.ProductId == productId).FirstOrDefault();
+        }
+
+        public List<Product> GetProducts()
+        {
+            return products;
         }
 
         public void UpdateProduct(Product product)
         {
-            Product productToUpdate = _products.Where(p => p.ProductId == product.ProductId).FirstOrDefault();
-            productToUpdate = product;
-        }
 
-        public void DeleteProduct(Product product)
-        {
-            _products.Remove(product);
         }
     }
 }

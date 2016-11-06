@@ -3,7 +3,7 @@ using Takushi.Model;
 
 namespace Takushi.DAL
 {
-    public interface IProductsRepository
+    public interface IProductRepository
     {
         void DeleteProduct(Product product);
 
