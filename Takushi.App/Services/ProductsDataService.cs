@@ -15,5 +15,15 @@ namespace Takushi.App.Services
                 observableCollection.Add(listItem);
             return observableCollection;
         }
+
+        public void DeleteProduct(Product product)
+        {
+            _repository.DeleteProduct(product);
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            _repository.UpdateProduct(product);
+        }
     }
 }

@@ -1,6 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows.Input;
+using Takushi.App.Messages;
 using Takushi.App.Services;
+using Takushi.App.Utility;
 using Takushi.Model;
 
 namespace Takushi.App.ViewModel
@@ -9,6 +12,9 @@ namespace Takushi.App.ViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private ProductsDataService productDataService;
+        private DialogService dialogService;
+
+        public ICommand EditCommand { get; set; }
 
         private void RaisePropertyChanged(string propertyName)
         {
@@ -48,7 +54,34 @@ namespace Takushi.App.ViewModel
         public ProductOverviewViewModel()
         {
             productDataService = new ProductsDataService();
+            dialogService = new DialogService();
             LoadData();
+
+            LoadCommands();
+
+            Messenger.Default.Register<UpdateListMessage>(this, OnUpdateListMessageReceived);
+        }
+
+        private void OnUpdateListMessageReceived(UpdateListMessage obj)
+        {
+            LoadData();
+            dialogService.CloseDetailDialog();
+        }
+
+        private void LoadCommands()
+        {
+            EditCommand = new CustomCommand(EditProduct, CanEditProduct);
+        }
+
+        private void EditProduct(object obj)
+        {
+            Messenger.Default.Send<Product>(selectedProduct);
+            dialogService.ShowDetailDialog();
+        }
+
+        private bool CanEditProduct(object obj)
+        {
+            return (SelectedProduct != null);
         }
 
         private void LoadData()

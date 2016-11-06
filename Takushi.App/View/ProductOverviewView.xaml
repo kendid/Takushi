@@ -49,8 +49,8 @@
             <Label Grid.Row="2" Grid.Column="1" Name="PurchaseDateLabel" Content="{Binding SelectedProduct.PurchaseDate, Mode=OneWay}" />
             <Label Grid.Row="3" Grid.Column="1" Name="WarrantyLabel" Content="{Binding SelectedProduct.WarrantyExpires, Mode=OneWay}" />
 
-            <StackPanel Grid.Row="4">
-                <Button Name="EditProductButton" Content="Edit product" />
+            <StackPanel Grid.Row="4" Orientation="Horizontal">
+                <Button Content="Edit product" Command="{Binding EditCommand}" />
             </StackPanel>
         </Grid>
     </Grid>
