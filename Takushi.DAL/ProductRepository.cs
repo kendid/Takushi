@@ -5,7 +5,7 @@ using Takushi.Model;
 
 namespace Takushi.DAL
 {
-    public class ProductsRepository : IProductRepository
+    public class ProductRepository : IProductRepository
     {
         private static List<Product> _products;
 
@@ -22,18 +22,21 @@ namespace Takushi.DAL
             {
                 new Product()
                 {
+                    ProductId = 1,
                     Name = "TOSHIBA Notebook",
                     PurchaseDate = "2015-02-28",
                     WarrantyExpires = "2017-02-28"
                 },
                 new Product()
                 {
+                    ProductId = 2,
                     Name = "Palit GeForce 750 Ti",
                     PurchaseDate = "2014-11-17",
                     WarrantyExpires = "2016-11-17"
                 },
                 new Product()
                 {
+                    ProductId = 3,
                     Name = "Sennheiser PC 151",
                     PurchaseDate = "2015-09-26",
                     WarrantyExpires = "2018-09-26"
