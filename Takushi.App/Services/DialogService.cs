@@ -3,7 +3,7 @@ using Takushi.App.View;
 
 namespace Takushi.App.Services
 {
-    public class DialogService
+    public class DialogService : IDialogService
     {
         Window productDetailView = null;
 

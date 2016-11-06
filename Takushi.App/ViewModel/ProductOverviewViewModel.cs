@@ -11,8 +11,8 @@ namespace Takushi.App.ViewModel
     public class ProductOverviewViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private ProductsDataService productDataService;
-        private DialogService dialogService;
+        private IProductDataService productDataService;
+        private IDialogService dialogService;
 
         public ICommand EditCommand { get; set; }
 
@@ -51,10 +51,11 @@ namespace Takushi.App.ViewModel
             }
         }
 
-        public ProductOverviewViewModel()
+        public ProductOverviewViewModel(IProductDataService productDataService, IDialogService dialogService)
         {
-            productDataService = new ProductsDataService();
-            dialogService = new DialogService();
+            this.productDataService = productDataService;
+            this.dialogService = dialogService;
+
             LoadData();
 
             LoadCommands();
@@ -76,6 +77,7 @@ namespace Takushi.App.ViewModel
         private void EditProduct(object obj)
         {
             Messenger.Default.Send<Product>(selectedProduct);
+
             dialogService.ShowDetailDialog();
         }
 

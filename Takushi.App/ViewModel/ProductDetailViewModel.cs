@@ -9,7 +9,8 @@ namespace Takushi.App.ViewModel
 {
     public class ProductDetailViewModel : INotifyPropertyChanged
     {
-        private ProductsDataService productsDataService;
+        private IProductDataService productDataService;
+        private IDialogService dialogService;
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void RaisePropertyChanged(string propertyName)
@@ -35,9 +36,11 @@ namespace Takushi.App.ViewModel
             }
         }
 
-        public ProductDetailViewModel()
+        public ProductDetailViewModel(IProductDataService productDataService, IDialogService dialogService)
         {
-            productsDataService = new ProductsDataService();
+            this.productDataService = productDataService;
+            this.dialogService = dialogService;
+
             SaveCommand = new CustomCommand(SaveProduct, CanSaveProduct);
             DeleteCommand = new CustomCommand(DeleteProduct, CanDeleteProduct);
 
@@ -56,7 +59,7 @@ namespace Takushi.App.ViewModel
 
         private void DeleteProduct(object product)
         {
-            productsDataService.DeleteProduct(SelectedProduct);
+            productDataService.DeleteProduct(SelectedProduct);
             Messenger.Default.Send<UpdateListMessage>(new UpdateListMessage());
         }
 
@@ -67,7 +70,7 @@ namespace Takushi.App.ViewModel
 
         private void SaveProduct(object product)
         {
-            productsDataService.UpdateProduct(SelectedProduct);
+            productDataService.UpdateProduct(SelectedProduct);
             Messenger.Default.Send<UpdateListMessage>(new UpdateListMessage());
         }
     }

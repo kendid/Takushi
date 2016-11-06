@@ -74,10 +74,12 @@
     </ApplicationDefinition>
     <Compile Include="Messages\UpdateListMessage.cs" />
     <Compile Include="Services\DialogService.cs" />
+    <Compile Include="Services\IDialogService.cs" />
+    <Compile Include="Services\IProductDataService.cs" />
     <Compile Include="Utility\CustomCommand.cs" />
     <Compile Include="Utility\Messenger.cs" />
     <Compile Include="ViewModel\ProductDetailViewModel.cs" />
-    <Compile Include="Services\ProductsDataService.cs" />
+    <Compile Include="Services\ProductDataService.cs" />
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="ViewModel\ProductOverviewViewModel.cs" />
     <Compile Include="View\ProductDetailView.xaml.cs">

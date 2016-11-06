@@ -4,9 +4,14 @@ using Takushi.Model;
 
 namespace Takushi.App.Services
 {
-    public class ProductsDataService
+    public class ProductDataService : IProductDataService
     {
-        ProductsRepository _repository = new ProductsRepository();
+        IProductsRepository _repository;
+
+        public ProductDataService(IProductsRepository repository)
+        {
+            _repository = repository;
+        }
 
         public ObservableCollection<Product> GetAllProducts()
         {
@@ -24,6 +29,11 @@ namespace Takushi.App.Services
         public void UpdateProduct(Product product)
         {
             _repository.UpdateProduct(product);
+        }
+
+        public Product GetProductDetail(int productId)
+        {
+            return _repository.GetProductById(productId);
         }
     }
 }

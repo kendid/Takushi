@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Takushi.Model;
 
 namespace Takushi.DAL
 {
-    public class ProductsRepository
+    public class ProductsRepository : IProductsRepository
     {
         private static List<Product> _products;
 
@@ -38,6 +39,11 @@ namespace Takushi.DAL
                     WarrantyExpires = "2018-09-26"
                 }
             };
+        }
+
+        public Product GetProductById(int productId)
+        {
+            throw new NotImplementedException();
         }
 
         public void UpdateProduct(Product product)
