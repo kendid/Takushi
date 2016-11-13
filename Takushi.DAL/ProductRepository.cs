@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Takushi.Model;
 
@@ -46,7 +45,7 @@ namespace Takushi.DAL
 
         public Product GetProductById(int productId)
         {
-            throw new NotImplementedException();
+            return _products.Where(p => p.ProductId == productId).FirstOrDefault();
         }
 
         public void UpdateProduct(Product product)
