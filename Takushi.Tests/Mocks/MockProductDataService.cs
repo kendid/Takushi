@@ -14,6 +14,11 @@ namespace Takushi.Tests.Mocks
             this.repository = repository;
         }
 
+        public Product AddProduct()
+        {
+            return new Product();
+        }
+
         public void DeleteProduct(Product product)
         {
 

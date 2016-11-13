@@ -61,5 +61,10 @@ namespace Takushi.Tests.Mocks
         {
 
         }
+
+        public Product AddProduct()
+        {
+            return new Product();
+        }
     }
 }
