@@ -31,9 +31,9 @@
             <Label Grid.Row="3" FontWeight="Bold" Content="Date of purchase" />
             <Label Grid.Row="4" FontWeight="Bold" Content="Warranty expires" />
 
-            <TextBox Grid.Row="2" Grid.Column="1" Name="ProductNameTextBox" Text="{Binding SelectedProduct.Name, Mode=TwoWay}" />
-            <TextBox Grid.Row="3" Grid.Column="1" Name="PurchaseDateTextBox" Text="{Binding SelectedProduct.PurchaseDate, Mode=TwoWay}" />
-            <TextBox Grid.Row="4" Grid.Column="1" Name="WarrantyTextBox" Text="{Binding SelectedProduct.WarrantyExpires, Mode=TwoWay}" />
+            <TextBox Grid.Row="2" Grid.Column="1" Name="ProductNameTextBox" Text="{Binding SelectedProduct.Name, Mode=TwoWay}" VerticalContentAlignment="Center" />
+            <TextBox Grid.Row="3" Grid.Column="1" Name="PurchaseDateTextBox" Text="{Binding SelectedProduct.PurchaseDate, Mode=TwoWay}" VerticalContentAlignment="Center" />
+            <TextBox Grid.Row="4" Grid.Column="1" Name="WarrantyTextBox" Text="{Binding SelectedProduct.WarrantyExpires, Mode=TwoWay}" VerticalContentAlignment="Center" />
 
             <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal">
                 <Button Content="Save Product" Margin="5">
