@@ -10,13 +10,14 @@ namespace Takushi.App.ViewModel
 {
     public class ProductOverviewViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         private IProductDataService productDataService;
         private IDialogService dialogService;
 
         public ICommand EditCommand { get; set; }
 
-        private void RaisePropertyChanged(string propertyName)
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -25,14 +26,14 @@ namespace Takushi.App.ViewModel
 
         public ObservableCollection<Product> Products
         {
-            get
-            {
-                return products;
-            }
+            get { return products; }
             set
             {
-                products = value;
-                RaisePropertyChanged("Products");
+                if (products != value)
+                {
+                    products = value;
+                    NotifyPropertyChanged("Products");
+                }
             }
         }
 
@@ -40,14 +41,14 @@ namespace Takushi.App.ViewModel
 
         public Product SelectedProduct
         {
-            get
-            {
-                return selectedProduct;
-            }
+            get { return selectedProduct; }
             set
             {
-                selectedProduct = value;
-                RaisePropertyChanged("SelectedProduct");
+                if (selectedProduct != value)
+                {
+                    selectedProduct = value;
+                    NotifyPropertyChanged("SelectedProduct");
+                }
             }
         }
 

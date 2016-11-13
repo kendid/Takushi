@@ -11,28 +11,29 @@ namespace Takushi.App.ViewModel
     {
         private IProductDataService productDataService;
         private IDialogService dialogService;
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         public ICommand SaveCommand { get; set; }
 
         public ICommand DeleteCommand { get; set; }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         private Product selectedProduct;
         public Product SelectedProduct
         {
-            get
-            {
-                return selectedProduct;
-            }
+            get { return selectedProduct; }
             set
             {
-                selectedProduct = value;
-                RaisePropertyChanged("SelectedProduct");
+                if (selectedProduct != value)
+                {
+                    selectedProduct = value;
+                    NotifyPropertyChanged("SelectedProduct");
+                }
             }
         }
 
