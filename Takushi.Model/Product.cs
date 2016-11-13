@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace Takushi.Model
 {
@@ -11,53 +12,53 @@ namespace Takushi.Model
 
         public int ProductId
         {
-            get
-            {
-                return productId;
-            }
+            get { return productId; }
             set
             {
-                productId = value;
-                RaisePropertyChanged("ProductId");
+                if (productId != value)
+                {
+                    productId = value;
+                    RaisePropertyChanged("ProductId");
+                }
             }
         }
 
         public string Name
         {
-            get
-            {
-                return productName;
-            }
+            get { return productName; }
             set
             {
-                productName = value;
-                RaisePropertyChanged("Name");
+                if (productName != value)
+                {
+                    productName = value;
+                    RaisePropertyChanged("Name");
+                }
             }
         }
 
         public string PurchaseDate
         {
-            get
-            {
-                return purchaseDate;
-            }
+            get { return purchaseDate; }
             set
             {
-                purchaseDate = value;
-                RaisePropertyChanged("PurchaseDate");
+                if (purchaseDate != value)
+                {
+                    purchaseDate = value;
+                    RaisePropertyChanged("PurchaseDate");
+                }
             }
         }
 
         public string WarrantyExpires
         {
-            get
-            {
-                return warrantyExpires;
-            }
+            get { return warrantyExpires; }
             set
             {
-                warrantyExpires = value;
-                RaisePropertyChanged("WarrantyExpires");
+                if (warrantyExpires != value)
+                {
+                    warrantyExpires = value;
+                    RaisePropertyChanged("WarrantyExpires");
+                }
             }
         }
 
@@ -66,6 +67,11 @@ namespace Takushi.Model
         public void RaisePropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public Product()
+        {
+            purchaseDate = DateTime.Today.ToShortDateString();
         }
     }
 }
