@@ -12,5 +12,7 @@ namespace Takushi.App.Services
         Product GetProductDetail(int productId);
 
         void UpdateProduct(Product product);
+
+        Product AddProduct();
     }
 }

@@ -35,5 +35,10 @@ namespace Takushi.App.Services
         {
             return _repository.GetProductById(productId);
         }
+
+        public Product AddProduct()
+        {
+            return _repository.AddProduct();
+        }
     }
 }

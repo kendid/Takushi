@@ -12,5 +12,7 @@ namespace Takushi.DAL
         List<Product> GetProducts();
 
         void UpdateProduct(Product product);
+
+        Product AddProduct();
     }
 }

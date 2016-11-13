@@ -59,5 +59,14 @@ namespace Takushi.DAL
         {
             _products.Remove(product);
         }
+
+        public Product AddProduct()
+        {
+            var newProduct = new Product();
+
+            _products.Add(newProduct);
+
+            return newProduct;
+        }
     }
 }

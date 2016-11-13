@@ -14,6 +14,7 @@ namespace Takushi.App.ViewModel
         private IDialogService dialogService;
 
         public ICommand EditCommand { get; set; }
+        public ICommand AddCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -73,6 +74,7 @@ namespace Takushi.App.ViewModel
         private void LoadCommands()
         {
             EditCommand = new CustomCommand(EditProduct, CanEditProduct);
+            AddCommand = new CustomCommand(AddProduct, CanAddProduct);
         }
 
         private void EditProduct(object obj)
@@ -85,6 +87,20 @@ namespace Takushi.App.ViewModel
         private bool CanEditProduct(object obj)
         {
             return (SelectedProduct != null);
+        }
+
+        private void AddProduct(object obj)
+        {
+            var newProduct = productDataService.AddProduct();
+
+            Messenger.Default.Send<Product>(newProduct);
+
+            dialogService.ShowDetailDialog();
+        }
+
+        private bool CanAddProduct(object obj)
+        {
+            return true;
         }
 
         private void LoadData()
