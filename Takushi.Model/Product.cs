@@ -7,8 +7,8 @@ namespace Takushi.Model
     {
         private int productId;
         private string productName;
-        private string purchaseDate;
-        private string warrantyExpires;
+        private DateTime purchaseDate;
+        private DateTime warrantyExpires;
 
         public int ProductId
         {
@@ -36,7 +36,7 @@ namespace Takushi.Model
             }
         }
 
-        public string PurchaseDate
+        public DateTime PurchaseDate
         {
             get { return purchaseDate; }
             set
@@ -49,7 +49,7 @@ namespace Takushi.Model
             }
         }
 
-        public string WarrantyExpires
+        public DateTime WarrantyExpires
         {
             get { return warrantyExpires; }
             set
@@ -71,7 +71,8 @@ namespace Takushi.Model
 
         public Product()
         {
-            purchaseDate = DateTime.Today.ToShortDateString();
+            purchaseDate = DateTime.Today;
+            warrantyExpires = purchaseDate.AddYears(2);
         }
     }
 }
