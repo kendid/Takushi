@@ -32,7 +32,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Grid.Row="1" Grid.Column="0" Content="Add product" Command="{Binding AddCommand}" />
+        <Button Grid.Row="1" Grid.Column="0" Content="Add product" Command="{Binding AddCommand}" Margin="5" />
         
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -40,8 +40,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="120" />
-                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="30" />
                 <RowDefinition Height="30" />
                 <RowDefinition Height="30" />
@@ -54,10 +53,7 @@
             <Label Grid.Row="1" Grid.Column="1" Name="ProductNameLabel" Content="{Binding SelectedProduct.Name, Mode=OneWay}" />
             <Label Grid.Row="2" Grid.Column="1" Name="PurchaseDateLabel" Content="{Binding SelectedProduct.PurchaseDate, Mode=OneWay}" />
             <Label Grid.Row="3" Grid.Column="1" Name="WarrantyLabel" Content="{Binding SelectedProduct.WarrantyExpires, Mode=OneWay}" />
-
-            <StackPanel Grid.Row="4" Orientation="Horizontal">
-                <Button Content="Edit product" Command="{Binding EditCommand}" />
-            </StackPanel>
         </Grid>
+        <Button Grid.Row="1" Grid.Column="1" Content="Edit product" Command="{Binding EditCommand}" Margin="5" />
     </Grid>
 </Window>

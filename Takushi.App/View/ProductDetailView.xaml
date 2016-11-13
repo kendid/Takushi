@@ -25,7 +25,7 @@
                 <RowDefinition Height="50" />
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Grid.ColumnSpan="2" Name="ProductNameLabel" FontSize="24" FontWeight="Bold" Content="{Binding Name, Mode=OneWay}" />
+            <Label Grid.Row="0" Grid.ColumnSpan="2" Name="ProductNameLabel" FontSize="24" FontWeight="Bold" Content="{Binding SelectedProduct.Name, Mode=OneWay}" />
             <!-- Grid.Row=1 could contain an image -->
             <Label Grid.Row="2" FontWeight="Bold" Content="Name of product" />
             <Label Grid.Row="3" FontWeight="Bold" Content="Date of purchase" />
@@ -36,7 +36,7 @@
             <TextBox Grid.Row="4" Grid.Column="1" Name="WarrantyTextBox" Text="{Binding SelectedProduct.WarrantyExpires, Mode=TwoWay}" />
 
             <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal">
-                <Button Content="Save Product">
+                <Button Content="Save Product" Margin="5">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <i:InvokeCommandAction Command="{Binding SaveCommand}" />
