@@ -25,21 +25,21 @@ namespace Takushi.DAL
                     ProductId = 1,
                     Name = "TOSHIBA Notebook",
                     PurchaseDate = new DateTime(2015, 02, 28),
-                    WarrantyExpires = new DateTime(2017, 02, 28)
+                    WarrantyInMonths = 24
                 },
                 new Product()
                 {
                     ProductId = 2,
                     Name = "Palit GeForce 750 Ti",
                     PurchaseDate = new DateTime(2014, 11, 17),
-                    WarrantyExpires = new DateTime(2016, 11, 17)
+                    WarrantyInMonths = 24
                 },
                 new Product()
                 {
                     ProductId = 3,
                     Name = "Sennheiser PC 151",
                     PurchaseDate = new DateTime(2015, 09, 26),
-                    WarrantyExpires = new DateTime(2018, 09, 26)
+                    WarrantyInMonths = 36
                 }
             };
         }

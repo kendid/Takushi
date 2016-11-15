@@ -29,7 +29,7 @@
             <!-- Grid.Row=1 could contain an image -->
             <Label Grid.Row="2" VerticalAlignment="Center" FontWeight="Bold" Content="Name of product" />
             <Label Grid.Row="3" VerticalAlignment="Center" FontWeight="Bold" Content="Date of purchase" />
-            <Label Grid.Row="4" VerticalAlignment="Center" FontWeight="Bold" Content="Warranty expires" />
+            <Label Grid.Row="4" VerticalAlignment="Center" FontWeight="Bold" Content="Warranty expires in" />
 
             <TextBox 
                 Grid.Row="2" 
@@ -54,7 +54,13 @@
                 Name="WarrantyTextBox" 
                 VerticalContentAlignment="Center" 
                 Margin="3" 
-                Text="{Binding SelectedProduct.WarrantyExpires, Mode=TwoWay, StringFormat='yyyy-MM-dd'}" 
+                Text="{Binding SelectedProduct.WarrantyInMonths, Mode=TwoWay}"                                 
+                />
+            <Label
+                Grid.Row="4"
+                Grid.Column="1"
+                Content="months"               
+                HorizontalAlignment="Right"
                 />
 
             <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal">

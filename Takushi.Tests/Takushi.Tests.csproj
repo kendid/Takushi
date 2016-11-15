@@ -47,6 +47,7 @@
     <Compile Include="Mocks\MockProductDataService.cs" />
     <Compile Include="Mocks\MockRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WarrantyTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Takushi.App\Takushi.App.csproj">

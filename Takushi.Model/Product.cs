@@ -7,8 +7,7 @@ namespace Takushi.Model
     {
         private int productId;
         private string productName;
-        private DateTime purchaseDate;
-        private DateTime warrantyExpires;
+        private Warranty warranty;
 
         public int ProductId
         {
@@ -38,27 +37,35 @@ namespace Takushi.Model
 
         public DateTime PurchaseDate
         {
-            get { return purchaseDate; }
+            get { return warranty.StartDate; }
             set
             {
-                if (purchaseDate != value)
+                if (warranty.StartDate != value)
                 {
-                    purchaseDate = value;
+                    warranty.StartDate = value;
                     RaisePropertyChanged("PurchaseDate");
                 }
             }
         }
 
-        public DateTime WarrantyExpires
+        public int WarrantyInMonths
         {
-            get { return warrantyExpires; }
+            get { return warranty.WarrantyInMonths; }
             set
             {
-                if (warrantyExpires != value)
+                if (warranty.WarrantyInMonths != value)
                 {
-                    warrantyExpires = value;
-                    RaisePropertyChanged("WarrantyExpires");
+                    warranty.WarrantyInMonths = value;
+                    RaisePropertyChanged("WarrantyInMonths");
                 }
+            }
+        }
+
+        public DateTime WarrantyExpirationDate
+        {
+            get
+            {
+                return warranty.StartDate.AddMonths(warranty.WarrantyInMonths);
             }
         }
 
@@ -71,8 +78,7 @@ namespace Takushi.Model
 
         public Product()
         {
-            purchaseDate = DateTime.Today;
-            warrantyExpires = purchaseDate.AddYears(2);
+            warranty = new Warranty(DateTime.Today, 24);
         }
     }
 }
