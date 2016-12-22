@@ -9,7 +9,7 @@ namespace Takushi.App
         private static IDialogService dialogService = new DialogService();
 
         private static IProductDataService productDataService =
-            new ProductDataService(new ProductRepository());
+            new ProductDataService(new TextFileProductRepository(Properties.Settings.Default.TextDataPath));
 
         private static ProductOverviewViewModel productOverviewViewModel =
             new ProductOverviewViewModel(productDataService, dialogService);
