@@ -11,6 +11,7 @@ namespace Takushi.DAL
         const string defaultFilename = "textData.txt";
 
         private static List<Product> _products;
+        private string FilePath;
 
         public TextFileProductRepository(String filename)
         {
@@ -20,7 +21,13 @@ namespace Takushi.DAL
             if (filename == null)
                 filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), defaultFilename);
 
-            ImportProductsFromFile(_products, filename);
+            FilePath = filename;
+            ImportProductsFromFile(_products, FilePath);
+        }
+
+        ~TextFileProductRepository()
+        {
+            ExportProductsToFile(_products, FilePath);
         }
 
         private void ImportProductsFromFile(List<Product> products, string filename)
@@ -49,6 +56,25 @@ namespace Takushi.DAL
                     products.Add(p);
                 }
             }
+        }
+
+        private void ExportProductsToFile(List<Product> products, string filename)
+        {
+            TextWriter writer = File.CreateText(filename);
+
+            foreach (Product p in products)
+            {
+                string line = "";
+
+                line += (p.ProductId).ToString() + ";";
+                line += p.Name.Replace(";", "") + ";";
+                line += p.PurchaseDate.ToShortDateString() + ";";
+                line += p.WarrantyInMonths.ToString() + ";";
+
+                writer.WriteLine(line);
+            }
+
+            writer.Close();
         }
 
         public Product AddProduct()
