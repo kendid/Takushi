@@ -5,7 +5,7 @@ using Takushi.Model;
 
 namespace Takushi.DAL
 {
-    public class ProductRepository : IProductRepository
+    public class ExampleProductRepository : IProductRepository
     {
         private static List<Product> _products;
 

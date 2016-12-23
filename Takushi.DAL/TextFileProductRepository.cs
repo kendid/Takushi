@@ -69,7 +69,7 @@ namespace Takushi.DAL
                 line += (p.ProductId).ToString() + ";";
                 line += p.Name.Replace(";", "") + ";";
                 line += p.PurchaseDate.ToShortDateString() + ";";
-                line += p.WarrantyInMonths.ToString() + ";";
+                line += p.WarrantyInMonths.ToString();
 
                 writer.WriteLine(line);
             }
